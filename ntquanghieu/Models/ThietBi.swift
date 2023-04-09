@@ -1,8 +1,7 @@
-//
-//  ThietBi.swift
-//  ntquanghieu
-//
-//  Created by Phạm Khải on 01/04/2023.
-//
-
 import Foundation
+
+struct ThietBi : Codable{
+    var id : String? = ""
+    var ten : String? = ""
+    var gia : String? = ""
+}

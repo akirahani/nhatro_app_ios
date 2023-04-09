@@ -6,15 +6,33 @@
 //
 
 import SwiftUI
+ 
 
-struct SceneDelegate: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+class SceneDelegate: NSObject, UIWindowSceneDelegate {
+    
+    var window: UIWindow?
+
+    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+        guard let _ = (scene as? UIWindowScene) else { return }
     }
-}
 
-struct SceneDelegate_Previews: PreviewProvider {
-    static var previews: some View {
-        SceneDelegate()
+    func sceneDidDisconnect(_ scene: UIScene) {
+      
+    }
+
+    func sceneDidBecomeActive(_ scene: UIScene) {
+      
+    }
+
+    func sceneWillResignActive(_ scene: UIScene) {
+      
+    }
+
+    func sceneWillEnterForeground(_ scene: UIScene) {
+      
+    }
+
+    func sceneDidEnterBackground(_ scene: UIScene) {
+      
     }
 }

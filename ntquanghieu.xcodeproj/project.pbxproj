@@ -7,18 +7,71 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0768C8F029D993700015055D /* DichVuAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0768C8EF29D993700015055D /* DichVuAddView.swift */; };
+		0786A46029DAE8F700FA8B3C /* DichVuEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0786A45F29DAE8F700FA8B3C /* DichVuEditView.swift */; };
+		0786A46229DBDBAE00FA8B3C /* KhachTroAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0786A46129DBDBAE00FA8B3C /* KhachTroAddView.swift */; };
+		0786A46429DBDBCD00FA8B3C /* KhachTroEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0786A46329DBDBCD00FA8B3C /* KhachTroEditView.swift */; };
+		0786A46629DC3B0100FA8B3C /* UuDaiAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0786A46529DC3B0100FA8B3C /* UuDaiAddView.swift */; };
+		0786A46829DC75B300FA8B3C /* UuDaiEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0786A46729DC75B300FA8B3C /* UuDaiEditView.swift */; };
+		0786A46C29DD3B3300FA8B3C /* UuDaiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0786A46B29DD3B3300FA8B3C /* UuDaiView.swift */; };
+		84832AA929D2EF31006B8B15 /* ThongKe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84832AA829D2EF31006B8B15 /* ThongKe.swift */; };
+		84832AAB29D2F0DF006B8B15 /* ThongKeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84832AAA29D2F0DF006B8B15 /* ThongKeView.swift */; };
+		84832ACB29D42054006B8B15 /* KhachTroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84832ACA29D42054006B8B15 /* KhachTroView.swift */; };
+		84832ACD29D42061006B8B15 /* TienPhongView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84832ACC29D42061006B8B15 /* TienPhongView.swift */; };
+		84832ACF29D4206A006B8B15 /* TienCocView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84832ACE29D4206A006B8B15 /* TienCocView.swift */; };
+		84832AD129D42079006B8B15 /* QuyTienView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84832AD029D42079006B8B15 /* QuyTienView.swift */; };
+		84832AD329D42086006B8B15 /* HopDongView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84832AD229D42086006B8B15 /* HopDongView.swift */; };
+		84832AD529D42092006B8B15 /* PhongTroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84832AD429D42092006B8B15 /* PhongTroView.swift */; };
+		84832AD729D4209C006B8B15 /* DichVuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84832AD629D4209C006B8B15 /* DichVuView.swift */; };
+		84832ADC29D43394006B8B15 /* MenuSlideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84832ADB29D43394006B8B15 /* MenuSlideView.swift */; };
+		84C4FBB529E08A4B00CE700A /* HopDongDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C4FBB429E08A4B00CE700A /* HopDongDetailView.swift */; };
 		84D4B2EA29CC1EC000DB9770 /* ntquanghieuApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D4B2E929CC1EC000DB9770 /* ntquanghieuApp.swift */; };
 		84D4B2EC29CC1EC000DB9770 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D4B2EB29CC1EC000DB9770 /* ContentView.swift */; };
 		84D4B2EE29CC1EC200DB9770 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84D4B2ED29CC1EC200DB9770 /* Assets.xcassets */; };
 		84D4B2F129CC1EC200DB9770 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84D4B2F029CC1EC200DB9770 /* Preview Assets.xcassets */; };
+		84D4B2FF29CD884800DB9770 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D4B2FE29CD884800DB9770 /* HomeView.swift */; };
+		84D4B30229CD93B500DB9770 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D4B30129CD93B500DB9770 /* LoginView.swift */; };
+		84D4B30429CDA1B400DB9770 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D4B30329CDA1B400DB9770 /* AppDelegate.swift */; };
+		84D4B30629CDAB9A00DB9770 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D4B30529CDAB9A00DB9770 /* SceneDelegate.swift */; };
+		84D4B30929CDB59700DB9770 /* HomeFragment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D4B30829CDB59700DB9770 /* HomeFragment.swift */; };
+		84D4B30B29CDB5A300DB9770 /* NotificationFragment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D4B30A29CDB5A300DB9770 /* NotificationFragment.swift */; };
+		84D4B30D29CDB5B800DB9770 /* AccountFragment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D4B30C29CDB5B800DB9770 /* AccountFragment.swift */; };
+		84D4B30F29CDF2FA00DB9770 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D4B30E29CDF2FA00DB9770 /* Header.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0768C8EF29D993700015055D /* DichVuAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DichVuAddView.swift; sourceTree = "<group>"; };
+		0786A45F29DAE8F700FA8B3C /* DichVuEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DichVuEditView.swift; sourceTree = "<group>"; };
+		0786A46129DBDBAE00FA8B3C /* KhachTroAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KhachTroAddView.swift; sourceTree = "<group>"; };
+		0786A46329DBDBCD00FA8B3C /* KhachTroEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KhachTroEditView.swift; sourceTree = "<group>"; };
+		0786A46529DC3B0100FA8B3C /* UuDaiAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UuDaiAddView.swift; sourceTree = "<group>"; };
+		0786A46729DC75B300FA8B3C /* UuDaiEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UuDaiEditView.swift; sourceTree = "<group>"; };
+		0786A46B29DD3B3300FA8B3C /* UuDaiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UuDaiView.swift; sourceTree = "<group>"; };
+		84832AA829D2EF31006B8B15 /* ThongKe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThongKe.swift; sourceTree = "<group>"; };
+		84832AAA29D2F0DF006B8B15 /* ThongKeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThongKeView.swift; sourceTree = "<group>"; };
+		84832ACA29D42054006B8B15 /* KhachTroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KhachTroView.swift; sourceTree = "<group>"; };
+		84832ACC29D42061006B8B15 /* TienPhongView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TienPhongView.swift; sourceTree = "<group>"; };
+		84832ACE29D4206A006B8B15 /* TienCocView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TienCocView.swift; sourceTree = "<group>"; };
+		84832AD029D42079006B8B15 /* QuyTienView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuyTienView.swift; sourceTree = "<group>"; };
+		84832AD229D42086006B8B15 /* HopDongView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HopDongView.swift; sourceTree = "<group>"; };
+		84832AD429D42092006B8B15 /* PhongTroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhongTroView.swift; sourceTree = "<group>"; };
+		84832AD629D4209C006B8B15 /* DichVuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DichVuView.swift; sourceTree = "<group>"; };
+		84832ADB29D43394006B8B15 /* MenuSlideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSlideView.swift; sourceTree = "<group>"; };
+		84C4FBB429E08A4B00CE700A /* HopDongDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HopDongDetailView.swift; sourceTree = "<group>"; };
 		84D4B2E629CC1EC000DB9770 /* ntquanghieu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ntquanghieu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84D4B2E929CC1EC000DB9770 /* ntquanghieuApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ntquanghieuApp.swift; sourceTree = "<group>"; };
 		84D4B2EB29CC1EC000DB9770 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		84D4B2ED29CC1EC200DB9770 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84D4B2F029CC1EC200DB9770 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		84D4B2F929CC4E5800DB9770 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		84D4B2FE29CD884800DB9770 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		84D4B30129CD93B500DB9770 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		84D4B30329CDA1B400DB9770 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		84D4B30529CDAB9A00DB9770 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		84D4B30829CDB59700DB9770 /* HomeFragment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFragment.swift; sourceTree = "<group>"; };
+		84D4B30A29CDB5A300DB9770 /* NotificationFragment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationFragment.swift; sourceTree = "<group>"; };
+		84D4B30C29CDB5B800DB9770 /* AccountFragment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountFragment.swift; sourceTree = "<group>"; };
+		84D4B30E29CDF2FA00DB9770 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +85,180 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		84832AA529D05404006B8B15 /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				84D4B30E29CDF2FA00DB9770 /* Header.swift */,
+			);
+			path = Layout;
+			sourceTree = "<group>";
+		};
+		84832AA629D2EF10006B8B15 /* QuanLiChung */ = {
+			isa = PBXGroup;
+			children = (
+				84832AC929D4200F006B8B15 /* KhachThue */,
+				84832ABB29D3E41C006B8B15 /* UuDai */,
+				84832ABA29D3E414006B8B15 /* TienPhong */,
+				84832AB929D3E40C006B8B15 /* TienCoc */,
+				84832AB829D3E403006B8B15 /* QuyTien */,
+				84832AB529D3DEB5006B8B15 /* HopDong */,
+				84832AB229D3DE86006B8B15 /* PhongTro */,
+				84832AAC29D3DDAC006B8B15 /* DichVu */,
+				84832AA729D2EF16006B8B15 /* ThongKe */,
+			);
+			path = QuanLiChung;
+			sourceTree = "<group>";
+		};
+		84832AA729D2EF16006B8B15 /* ThongKe */ = {
+			isa = PBXGroup;
+			children = (
+				84832AA829D2EF31006B8B15 /* ThongKe.swift */,
+				84832AAA29D2F0DF006B8B15 /* ThongKeView.swift */,
+			);
+			path = ThongKe;
+			sourceTree = "<group>";
+		};
+		84832AAC29D3DDAC006B8B15 /* DichVu */ = {
+			isa = PBXGroup;
+			children = (
+				84832AD629D4209C006B8B15 /* DichVuView.swift */,
+				0768C8EF29D993700015055D /* DichVuAddView.swift */,
+				0786A45F29DAE8F700FA8B3C /* DichVuEditView.swift */,
+			);
+			path = DichVu;
+			sourceTree = "<group>";
+		};
+		84832AB229D3DE86006B8B15 /* PhongTro */ = {
+			isa = PBXGroup;
+			children = (
+				84832AD429D42092006B8B15 /* PhongTroView.swift */,
+			);
+			path = PhongTro;
+			sourceTree = "<group>";
+		};
+		84832AB529D3DEB5006B8B15 /* HopDong */ = {
+			isa = PBXGroup;
+			children = (
+				84832AD229D42086006B8B15 /* HopDongView.swift */,
+				84C4FBB429E08A4B00CE700A /* HopDongDetailView.swift */,
+			);
+			path = HopDong;
+			sourceTree = "<group>";
+		};
+		84832AB829D3E403006B8B15 /* QuyTien */ = {
+			isa = PBXGroup;
+			children = (
+				84832AD029D42079006B8B15 /* QuyTienView.swift */,
+			);
+			path = QuyTien;
+			sourceTree = "<group>";
+		};
+		84832AB929D3E40C006B8B15 /* TienCoc */ = {
+			isa = PBXGroup;
+			children = (
+				84832ACE29D4206A006B8B15 /* TienCocView.swift */,
+			);
+			path = TienCoc;
+			sourceTree = "<group>";
+		};
+		84832ABA29D3E414006B8B15 /* TienPhong */ = {
+			isa = PBXGroup;
+			children = (
+				84832ACC29D42061006B8B15 /* TienPhongView.swift */,
+			);
+			path = TienPhong;
+			sourceTree = "<group>";
+		};
+		84832ABB29D3E41C006B8B15 /* UuDai */ = {
+			isa = PBXGroup;
+			children = (
+				0786A46529DC3B0100FA8B3C /* UuDaiAddView.swift */,
+				0786A46729DC75B300FA8B3C /* UuDaiEditView.swift */,
+				0786A46B29DD3B3300FA8B3C /* UuDaiView.swift */,
+			);
+			path = UuDai;
+			sourceTree = "<group>";
+		};
+		84832AC929D4200F006B8B15 /* KhachThue */ = {
+			isa = PBXGroup;
+			children = (
+				84832ACA29D42054006B8B15 /* KhachTroView.swift */,
+				0786A46129DBDBAE00FA8B3C /* KhachTroAddView.swift */,
+				0786A46329DBDBCD00FA8B3C /* KhachTroEditView.swift */,
+			);
+			path = KhachThue;
+			sourceTree = "<group>";
+		};
+		84832AD829D42119006B8B15 /* KhoanThu */ = {
+			isa = PBXGroup;
+			children = (
+				84832AE429D43471006B8B15 /* ThuKhac */,
+				84832AE329D4346A006B8B15 /* TienNuoc */,
+				84832AE229D4345F006B8B15 /* TienDien */,
+			);
+			path = KhoanThu;
+			sourceTree = "<group>";
+		};
+		84832AD929D42126006B8B15 /* KhoanChi */ = {
+			isa = PBXGroup;
+			children = (
+				84832AE129D433DA006B8B15 /* ChiKhac */,
+				84832AE029D433D2006B8B15 /* KhaBien */,
+				84832ADF29D433C7006B8B15 /* BatBien */,
+			);
+			path = KhoanChi;
+			sourceTree = "<group>";
+		};
+		84832ADA29D43382006B8B15 /* MenuSlide */ = {
+			isa = PBXGroup;
+			children = (
+				84832ADB29D43394006B8B15 /* MenuSlideView.swift */,
+			);
+			path = MenuSlide;
+			sourceTree = "<group>";
+		};
+		84832ADF29D433C7006B8B15 /* BatBien */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = BatBien;
+			sourceTree = "<group>";
+		};
+		84832AE029D433D2006B8B15 /* KhaBien */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = KhaBien;
+			sourceTree = "<group>";
+		};
+		84832AE129D433DA006B8B15 /* ChiKhac */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ChiKhac;
+			sourceTree = "<group>";
+		};
+		84832AE229D4345F006B8B15 /* TienDien */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TienDien;
+			sourceTree = "<group>";
+		};
+		84832AE329D4346A006B8B15 /* TienNuoc */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TienNuoc;
+			sourceTree = "<group>";
+		};
+		84832AE429D43471006B8B15 /* ThuKhac */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ThuKhac;
+			sourceTree = "<group>";
+		};
 		84D4B2DD29CC1EC000DB9770 = {
 			isa = PBXGroup;
 			children = (
@@ -51,10 +278,21 @@
 		84D4B2E829CC1EC000DB9770 /* ntquanghieu */ = {
 			isa = PBXGroup;
 			children = (
+				84832ADA29D43382006B8B15 /* MenuSlide */,
+				84832AD929D42126006B8B15 /* KhoanChi */,
+				84832AD829D42119006B8B15 /* KhoanThu */,
+				84832AA629D2EF10006B8B15 /* QuanLiChung */,
+				84832AA529D05404006B8B15 /* Layout */,
+				84D4B30729CDB58600DB9770 /* Fragment */,
+				84D4B30029CD936F00DB9770 /* Auth */,
+				84D4B2F929CC4E5800DB9770 /* Info.plist */,
 				84D4B2E929CC1EC000DB9770 /* ntquanghieuApp.swift */,
 				84D4B2EB29CC1EC000DB9770 /* ContentView.swift */,
 				84D4B2ED29CC1EC200DB9770 /* Assets.xcassets */,
 				84D4B2EF29CC1EC200DB9770 /* Preview Content */,
+				84D4B2FE29CD884800DB9770 /* HomeView.swift */,
+				84D4B30329CDA1B400DB9770 /* AppDelegate.swift */,
+				84D4B30529CDAB9A00DB9770 /* SceneDelegate.swift */,
 			);
 			path = ntquanghieu;
 			sourceTree = "<group>";
@@ -65,6 +303,24 @@
 				84D4B2F029CC1EC200DB9770 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		84D4B30029CD936F00DB9770 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				84D4B30129CD93B500DB9770 /* LoginView.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		84D4B30729CDB58600DB9770 /* Fragment */ = {
+			isa = PBXGroup;
+			children = (
+				84D4B30829CDB59700DB9770 /* HomeFragment.swift */,
+				84D4B30A29CDB5A300DB9770 /* NotificationFragment.swift */,
+				84D4B30C29CDB5B800DB9770 /* AccountFragment.swift */,
+			);
+			path = Fragment;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +393,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84832AD329D42086006B8B15 /* HopDongView.swift in Sources */,
+				84D4B30F29CDF2FA00DB9770 /* Header.swift in Sources */,
+				84D4B30B29CDB5A300DB9770 /* NotificationFragment.swift in Sources */,
+				0786A46429DBDBCD00FA8B3C /* KhachTroEditView.swift in Sources */,
+				84832AD129D42079006B8B15 /* QuyTienView.swift in Sources */,
+				84D4B2FF29CD884800DB9770 /* HomeView.swift in Sources */,
+				84832AA929D2EF31006B8B15 /* ThongKe.swift in Sources */,
+				0786A46C29DD3B3300FA8B3C /* UuDaiView.swift in Sources */,
+				84D4B30D29CDB5B800DB9770 /* AccountFragment.swift in Sources */,
 				84D4B2EC29CC1EC000DB9770 /* ContentView.swift in Sources */,
+				0786A46229DBDBAE00FA8B3C /* KhachTroAddView.swift in Sources */,
+				84832ACD29D42061006B8B15 /* TienPhongView.swift in Sources */,
+				84D4B30229CD93B500DB9770 /* LoginView.swift in Sources */,
+				84832ACB29D42054006B8B15 /* KhachTroView.swift in Sources */,
+				0786A46829DC75B300FA8B3C /* UuDaiEditView.swift in Sources */,
+				0786A46029DAE8F700FA8B3C /* DichVuEditView.swift in Sources */,
+				84832AD529D42092006B8B15 /* PhongTroView.swift in Sources */,
+				0768C8F029D993700015055D /* DichVuAddView.swift in Sources */,
+				0786A46629DC3B0100FA8B3C /* UuDaiAddView.swift in Sources */,
+				84C4FBB529E08A4B00CE700A /* HopDongDetailView.swift in Sources */,
+				84832ADC29D43394006B8B15 /* MenuSlideView.swift in Sources */,
+				84832AAB29D2F0DF006B8B15 /* ThongKeView.swift in Sources */,
+				84D4B30429CDA1B400DB9770 /* AppDelegate.swift in Sources */,
+				84832ACF29D4206A006B8B15 /* TienCocView.swift in Sources */,
 				84D4B2EA29CC1EC000DB9770 /* ntquanghieuApp.swift in Sources */,
+				84832AD729D4209C006B8B15 /* DichVuView.swift in Sources */,
+				84D4B30629CDAB9A00DB9770 /* SceneDelegate.swift in Sources */,
+				84D4B30929CDB59700DB9770 /* HomeFragment.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,24 +546,31 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ntquanghieu/Preview Content\"";
-				DEVELOPMENT_TEAM = M6A75TSDRH;
+				DEVELOPMENT_TEAM = BGKSX8U8S5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = ntquanghieu/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = Image;
+				INFOPLIST_KEY_UIRequiresFullScreen = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ces.ntquanghieu.ntquanghieu;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ces.ntquanghieu2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -293,24 +582,31 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ntquanghieu/Preview Content\"";
-				DEVELOPMENT_TEAM = M6A75TSDRH;
+				DEVELOPMENT_TEAM = BGKSX8U8S5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = ntquanghieu/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = Image;
+				INFOPLIST_KEY_UIRequiresFullScreen = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ces.ntquanghieu.ntquanghieu;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ces.ntquanghieu2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

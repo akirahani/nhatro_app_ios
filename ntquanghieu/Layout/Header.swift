@@ -29,7 +29,7 @@ extension Color {
 
 struct Header: View {
     var body: some View {
-        VStack{
+        Section(){
             HStack {
                 NavigationLink(destination: ContentView()) {
                     Image("logout").padding(.leading, 10)
@@ -42,9 +42,7 @@ struct Header: View {
             .frame(maxWidth: .infinity, maxHeight: 52)
             .background(
                 LinearGradient(gradient: Gradient(colors: [ Color(hex: "#526ED3"),Color(hex: "#263A84"),Color(hex: "#9BADEF")]), startPoint: .leading, endPoint: .trailing))
-            .padding(.horizontal,0)
         }
-        
     }
 }
 
