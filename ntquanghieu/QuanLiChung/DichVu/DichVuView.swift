@@ -7,6 +7,7 @@ struct DichVuView: View {
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State private var isSideBarOpened = false
+    @State private var xoaDichVuThanhCong = false
     
     var btnBack : some View { Button(action: {
         self.presentationMode.wrappedValue.dismiss()
@@ -53,10 +54,13 @@ struct DichVuView: View {
             guard let data = data, error == nil else {
                 return
             }
-            
-
+        
             let responseJSON = try? JSONDecoder().decode([ThietBi].self ,from: data )
+            xoaDichVuThanhCong = true
             
+            if(xoaDichVuThanhCong == true){
+                    DichVuView()
+            }
         }.resume()
       }
 
@@ -120,6 +124,10 @@ struct DichVuView: View {
                                                     print(param)
                                                     await delTB(parameters: param)
                                         
+                                                }
+                                            }.overlay{
+                                                NavigationLink(destination: DichVuView(), isActive: $xoaDichVuThanhCong){
+                                                        EmptyView()
                                                 }
                                             }
                                             

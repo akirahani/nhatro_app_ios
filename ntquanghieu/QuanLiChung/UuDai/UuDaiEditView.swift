@@ -14,6 +14,8 @@ struct UuDaiEditView: View {
     @State private var apDung: String = ""
     @State private var soNgay: String = ""
     @State var gotConfig = false
+    @State var capNhatThanhCong = false
+    @State var alertUDEditShow = false
     
     var btnBack : some View { Button(action: {
         self.presentationMode.wrappedValue.dismiss()
@@ -49,12 +51,27 @@ struct UuDaiEditView: View {
                
        URLSession.shared.dataTask(with: request) { data, response, error in
 
-           guard let data = data, error == nil else {
+           if  error != nil{
+               print("Err here")
                return
            }
-           
-           
-        let responseJSON = try? JSONDecoder().decode([ThietBi].self ,from: data )
+           //      call with JSON
+          if let data = data {
+              let json = try! JSONSerialization.jsonObject(with: data) as! [String: Any]
+
+             // Check if the login was successful
+             if json["id"] as! String != "0" {
+                 DispatchQueue.main.async {
+                     self.capNhatThanhCong = true
+                 }
+             } else {
+                 self.alertUDEditShow = true
+             }
+         }
+        
+           if capNhatThanhCong == true {
+                UuDaiView()
+           }
         
     
        }.resume()
@@ -248,12 +265,20 @@ struct UuDaiEditView: View {
                                         .padding(.leading, 44)
                                         .padding(.trailing ,44)
                                 }
+                                .overlay(
+                                    NavigationLink(destination: UuDaiView(), isActive: $capNhatThanhCong){
+                                        EmptyView()
+                                    }
+                                )
                                 .foregroundColor(Color.white)
                                 .background(LinearGradient(gradient: Gradient(colors: [Color(hex: "#B71616"), Color(hex:"#ec323780")]),startPoint: .topLeading,endPoint: .trailing))
                                 .cornerRadius(6)
                                 .padding(.top,22)
                                 .padding(.bottom,17)
                                 .padding(.trailing,9)
+                                .alert(isPresented: $alertUDEditShow){
+                                    Alert(title: Text("Thông báo !"), message: Text("Cập nhật không thành công"), dismissButton: .default(Text("OK")))
+                                }
                             }
                         }.background(Color(hex: "F3F6FF"))
                             .clipShape(RoundedRectangle(cornerRadius:7))
@@ -288,8 +313,3 @@ struct UuDaiEditView: View {
         })
     }
 }
-
-enum Choice {
-    case chon, khongchon
-}
-

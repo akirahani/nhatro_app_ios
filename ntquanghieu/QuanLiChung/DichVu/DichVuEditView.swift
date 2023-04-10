@@ -11,14 +11,24 @@ struct DichVuEditView: View {
     @State private var giaDichVu: String = ""
     @State private var idDV: String = ""
     @State var gotConfig = false
+    @State var capNhatDichVuThanhCong = false
+    @State var backHome = false
     
     var btnBack : some View { Button(action: {
         self.presentationMode.wrappedValue.dismiss()
-        isSideBarOpened = true
+        isSideBarOpened = false
         }) {
             HStack {
                 Image("back")
             }
+        }
+    }
+    
+    
+     func getHome () async throws {
+        backHome = true
+        if(backHome == true){
+            HomeView()
         }
     }
     
@@ -46,7 +56,14 @@ struct DichVuEditView: View {
            }
         
         let responseJSON = try? JSONDecoder().decode([ThietBi].self ,from: data )
-               
+        capNhatDichVuThanhCong = true
+           
+       if(capNhatDichVuThanhCong == true){
+            DichVuView()
+       }else{
+           DichVuAddView()
+       }
+           
        }.resume()
     }
     
@@ -151,6 +168,11 @@ struct DichVuEditView: View {
                                         .padding(.leading, 44)
                                         .padding(.trailing ,44)
                                 }
+                                .overlay{
+                                    NavigationLink(destination: DichVuView(), isActive: $capNhatDichVuThanhCong){
+                                            EmptyView()
+                                    }
+                                }
                                 .foregroundColor(Color.white)
                                 .background(LinearGradient(gradient: Gradient(colors: [Color(hex: "#B71616"), Color(hex:"#ec323780")]),startPoint: .topLeading,endPoint: .trailing))
                                 .cornerRadius(6)
@@ -175,7 +197,19 @@ struct DichVuEditView: View {
                         btnBack
                     }
                     ToolbarItem(placement: .principal) {
-                        Image("logohome")
+                        Button{
+                            NavigationView{
+                                NavigationLink(destination: HomeView(),isActive: $backHome){
+                                    EmptyView()
+                                }
+                            }   
+                        }label: {
+                            Image("logohome")
+                            
+                        }
+                        .overlay{
+                         
+                        }
                     }
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Image("bar") .onTapGesture {

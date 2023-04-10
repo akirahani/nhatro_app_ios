@@ -17,6 +17,7 @@ struct DichVuAddView: View {
     @State private var tenDichVu: String = ""
     @State private var giaDichVu: String = ""
     @State var gotConfig = false
+    @State var themDichVuThanhCong = false
     
     var btnBack : some View { Button(action: {
         self.presentationMode.wrappedValue.dismiss()
@@ -53,11 +54,18 @@ struct DichVuAddView: View {
            
            do{
                let responseJSON = try? JSONDecoder().decode([ThietBi].self ,from: data )
-               
+               themDichVuThanhCong = true
            }
            catch{
                print(error)
            }
+           
+           if(themDichVuThanhCong == true){
+                DichVuView()
+           }else{
+               DichVuAddView()
+           }
+           
        }.resume()
     }
     
@@ -158,6 +166,11 @@ struct DichVuAddView: View {
                                         .padding(.bottom,5)
                                         .padding(.leading, 44)
                                         .padding(.trailing ,44)
+                                }
+                                .overlay{
+                                    NavigationLink(destination: DichVuView(), isActive: $themDichVuThanhCong){
+                                            EmptyView()
+                                    }
                                 }
                                 .foregroundColor(Color.white)
                                 .background(LinearGradient(gradient: Gradient(colors: [Color(hex: "#B71616"), Color(hex:"#ec323780")]),startPoint: .topLeading,endPoint: .trailing))
