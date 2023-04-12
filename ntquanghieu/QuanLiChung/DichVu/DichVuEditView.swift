@@ -12,7 +12,6 @@ struct DichVuEditView: View {
     @State private var idDV: String = ""
     @State var gotConfig = false
     @State var capNhatDichVuThanhCong = false
-    @State var backHome = false
     
     var btnBack : some View { Button(action: {
         self.presentationMode.wrappedValue.dismiss()
@@ -24,13 +23,6 @@ struct DichVuEditView: View {
         }
     }
     
-    
-     func getHome () async throws {
-        backHome = true
-        if(backHome == true){
-            HomeView()
-        }
-    }
     
     func updateThietBi() async throws {
 
@@ -197,18 +189,18 @@ struct DichVuEditView: View {
                         btnBack
                     }
                     ToolbarItem(placement: .principal) {
-                        Button{
-                            NavigationView{
-                                NavigationLink(destination: HomeView(),isActive: $backHome){
-                                    EmptyView()
-                                }
-                            }   
+                        Button(){
+                              
                         }label: {
                             Image("logohome")
                             
                         }
-                        .overlay{
-                         
+                        .onTapGesture {
+                            NavigationView{
+                                NavigationLink(destination: HomeView()){
+                                    Image("logohome")
+                                }
+                            }
                         }
                     }
                     ToolbarItem(placement: .navigationBarTrailing) {

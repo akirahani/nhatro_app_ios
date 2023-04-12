@@ -1,16 +1,8 @@
-//
-//  KhachTroAddView.swift
-//  ntquanghieu
-//
-//  Created by Phạm Khải on 04/04/2023.
-//
-
 import SwiftUI
 
 struct KhachTroAddView: View {
-    
-   
     @State var khachModel = [Khach]()
+    @State var tinhThanhModel = [TinhThanh]()
 
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State private var isSideBarOpened = false
@@ -21,8 +13,7 @@ struct KhachTroAddView: View {
     @State var diaChi: String = ""
     @State var canCuoc: String = ""
     @State var ngayCap = Date()
-    @State var quocTich: String = ""
-    @State var ngaySinh:Date = Date()
+    @State var ngaySinh = Date()
     
     @State var gioiTinh: String = ""
     
@@ -173,7 +164,6 @@ struct KhachTroAddView: View {
             "diachi": diaChi,
             "cancuoc": canCuoc,
             "ngaycap": ngayCapFinal,
-            "quoctich": quocTich,
             "ngaysinh": ngaySinhFinal,
             "gioitinh": gioiTinh,
         ]
@@ -193,10 +183,10 @@ struct KhachTroAddView: View {
            }
            //      call with JSON
           if let data = data {
-              let json = try! JSONSerialization.jsonObject(with: data) as! [String: Any]
+              let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any]
 
              // Check if the login was successful
-             if json["status"] as! String == "success" {
+              if json?["status"] as? String == "success" {
                  DispatchQueue.main.async {
                      self.themKhachThanhCong = true
                  }
@@ -212,6 +202,20 @@ struct KhachTroAddView: View {
            }
 
        }.resume()
+    }
+    
+    func tinhThanh() async throws {
+
+       guard let urlTinhThanh =  URL(string:"http://192.168.1.183/nhatro/admin/api/khach/tinh_thanh.php")
+//       guard let urlAddTB =  URL(string:"http://192.168.0.104/nhatro/admin/api/khach/add.php")
+        else { return }
+        
+        do{
+              let (data, _) = try await URLSession.shared.data(from: urlTinhThanh)
+              tinhThanhModel = try! JSONDecoder().decode([TinhThanh].self, from: data)
+
+         }
+
     }
     
     var body: some View {
@@ -402,24 +406,7 @@ struct KhachTroAddView: View {
                                     .padding(.leading, 14)
                                     .padding(.bottom, 6)
                                     .padding(.top, 6)
-                                
-                                ZStack
-                                {
-                                    HStack{
-                                        Text("Quốc tịch: ").font(.system(size: 16, weight: .bold))
-                                            .padding(.leading, 9)
-                                        TextField("", text: $quocTich)
-                                            .padding(.trailing, 9)
-                                    }.padding(.top, 5)
-                                        .padding(.bottom, 5)
-                                        .background(Color(hex: "F3F6FF"))
-                                        .clipShape(RoundedRectangle(cornerRadius:10))
-                                    
-                                }.padding(.trailing, 14)
-                                    .padding(.leading, 14)
-                                    .padding(.bottom, 6)
-                                    .padding(.top, 6)
-                                
+                
                                 ZStack
                                 {
                                     HStack{
@@ -475,6 +462,8 @@ struct KhachTroAddView: View {
                                         .padding(.leading, 44)
                                         .padding(.trailing ,44)
                                     }
+                                    .disabled(tenKhach.isEmpty)
+                                    .disabled(dienThoai.isEmpty)
                                     .overlay{
                                         NavigationLink(destination: KhachTroView() , isActive: $themKhachThanhCong){
                                                 EmptyView()
@@ -512,6 +501,17 @@ struct KhachTroAddView: View {
             }.navigationBarBackButtonHidden(true)
             MenuSlideView(isSidebarVisible: $isSideBarOpened)
         }
+    }
+}
+
+struct TinhThanh: Codable, Identifiable {
+    var id = UUID()
+    let idtinh: String?
+    let ten: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case idtinh = "id"
+        case ten = "ten"
     }
 }
 

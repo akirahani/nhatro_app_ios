@@ -40,6 +40,8 @@ struct UuDaiAddView: View {
             "tenUuDai": tenUuDai,
             "apDung": apDung,
             "soNgayUuDai": soNgay]
+        
+        print(body)
         let jsonData = try? JSONSerialization.data(withJSONObject: body,options: .fragmentsAllowed)
         var request = URLRequest(url: urlEditTB)
         

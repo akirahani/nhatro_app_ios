@@ -1,15 +1,39 @@
-//
-//  HopDongView.swift
-//  ntquanghieu
-//
-//  Created by admin on 29/03/2023.
-//
-
 import SwiftUI
+    var hopDongModel = [HopDong]()
+    
+    func coHieuLuc() async {
+      guard let url = URL(string: "http://192.168.1.183/nhatro/admin/api/hop-dong/con-hieu-luc.php")
+//          guard let url = URL(string: "http://192.168.0.104/nhatro/admin/api/hop-dong/con-hieu-luc.php")
+    
+    else {
+          print("Invalid URL")
+          return
+      }
+      do {
+          let (data, _) = try await URLSession.shared.data(from: url)
+          hopDongModel = try JSONDecoder().decode([HopDong].self, from: data) // <-- here
+      } catch {
+          print(error)  // <-- important
+      }
+  }
 
+  func hetHieuLuc() async {
+      guard let url = URL(string: "http://192.168.1.183/nhatro/admin/api/hop-dong/het-hieu-luc.php") else {
+          print("Invalid URL")
+          return
+      }
+      do {
+          let (data, _) = try await URLSession.shared.data(from: url)
+          hopDongModel = try JSONDecoder().decode([HopDong].self, from: data) // <-- here
+      } catch {
+          print(error)  // <-- important
+      }
+  }
+
+    
 struct HopDongView: View {
+    @State var selectedTab = Tabs.FirstTab
     @State var hopDongModel = [HopDong]()
-
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State private var isSideBarOpened = false
     @State var tabIndex = 0
@@ -21,35 +45,6 @@ struct HopDongView: View {
             }
         }
     }
-    
-    func coHieuLuc() async {
-          guard let url = URL(string: "http://192.168.1.183/nhatro/admin/api/hop-dong/con-hieu-luc.php")
-//          guard let url = URL(string: "http://192.168.0.104/nhatro/admin/api/hop-dong/con-hieu-luc.php")
-        
-        else {
-              print("Invalid URL")
-              return
-          }
-          do {
-              let (data, _) = try await URLSession.shared.data(from: url)
-              hopDongModel = try JSONDecoder().decode([HopDong].self, from: data) // <-- here
-          } catch {
-              print(error)  // <-- important
-          }
-      }
-    
-    func hetHieuLuc() async {
-          guard let url = URL(string: "http://192.168.1.183/nhatro/admin/api/hop-dong/het-hieu-luc.php") else {
-              print("Invalid URL")
-              return
-          }
-          do {
-              let (data, _) = try await URLSession.shared.data(from: url)
-              hopDongModel = try JSONDecoder().decode([HopDong].self, from: data) // <-- here
-          } catch {
-              print(error)  // <-- important
-          }
-      }
     
     struct RoundedCorners: View {
         var color: Color = .blue
@@ -108,158 +103,42 @@ struct HopDongView: View {
                 }.background(Color.white)
                     .zIndex(2)
                 // thong tin danh sach hop dong
-                GeometryReader { proxy in
-                    ScrollView {
-                        LazyVStack(spacing: 0, pinnedViews: .sectionHeaders) {
-                            Section {
-                                TabView(selection: $tabIndex) {
-                                    VStack {
-                                        ScrollView{
-                                            // Tiêu đề HĐ còn hiệu lực
-                                            VStack{
-                                                HStack{
-                                                    Text("Tên khách").font(.system(size: 16, weight: .bold))
-                                                    Spacer()
-                                                    Text("Hợp đồng").font(.system(size: 16, weight: .bold))
-                                                    Spacer()
-                                                    Text("Tác vụ").font(.system(size: 16, weight: .bold))
-                                                }.padding(.top, 16)
-                                                    .padding(.leading, 25)
-                                                    .padding(.trailing, 25)
-                                                    .padding(.bottom, 16)
-                                            }.background(Color.white)
-                                                .padding(.top,10)
-                                            
-                                            // nội dung HĐ Còn HL
-                                            VStack{
-                                                ForEach(hopDongModel) { model in
-                                                    HStack(spacing: 10){
-                                                        Text(model.chuphong ?? "").padding(.leading, 5)
-                                                        Spacer()
-                                                        Text(model.idhd ?? "").padding(.leading, 5)
-                                                        Spacer()
-                                                        HStack{
-                                                            NavigationLink(destination: HopDongDetailView(hopDongItem :model)){
-                                                                Image("edit")
-                                                            }
-                                                            
-                                                        }.padding(.trailing, 5)
-                                                    }
-                                                    .frame(width: .none, height: 44)
-                                                    .background(Color(hex: "E8EDFF"))
-                                                    .clipShape(RoundedRectangle(cornerRadius:10))
-                                                    .padding(.top, 4)
-                                                    .padding(.leading, 10)
-                                                    .padding(.trailing, 10)
-                                                    .padding(.bottom, 4)
-                                                }
-                                            }.task {
-                                                await coHieuLuc()
-                                            }
-                                        }
-                                    }
-                                    .frame(maxWidth: .infinity)
-                                    .background(.white)
-                                    .tag(0)
-                                    
-                                    VStack {
-                                        ScrollView{
-                                            // Tiêu đề HĐ còn hiệu lực
-                                            VStack{
-                                                HStack{
-                                                    Text("Tên khách").font(.system(size: 16, weight: .bold))
-                                                    Spacer()
-                                                    Text("Hợp đồng").font(.system(size: 16, weight: .bold))
-                                                    Spacer()
-                                                    Text("Tác vụ").font(.system(size: 16, weight: .bold))
-                                                }.padding(.top, 16)
-                                                    .padding(.leading, 25)
-                                                    .padding(.trailing, 25)
-                                                    .padding(.bottom, 16)
-                                            }.background(Color.white)
-                                                .padding(.top,10)
-                                            
-                                            // nội dung HĐ Còn HL
-                                            VStack{
-                                                ForEach(hopDongModel) { model in
-                                                    HStack(spacing: 10){
-                                                        Text(model.chuphong ?? "").padding(.leading, 5)
-                                                            .frame(alignment: .leading)
-                                                        
-                                                        Spacer()
-                                                        Text(model.idhd ?? "").padding(.leading, 5)                       .frame(alignment: .center)
+                  HStack {
+                       VStack {
+                           Text("Còn hiệu lực")
+                               .padding(.leading,36)
+                               .padding(.trailing,36)
+                               .padding(.top,8)
+                               .padding(.bottom,8)
+                               .foregroundColor(Color.white)
+                               .background(RoundedCorners(color: selectedTab == .FirstTab ? Color(hex: "1338BD") : Color(hex: "CBC1C1"), tl: 10, tr: 10, bl: 0, br: 0) )
+                       }
+                       .onTapGesture {
+                           self.selectedTab = .FirstTab
+                       }
 
-                                                        Spacer()
-                                                        HStack{
-                                                            NavigationLink(destination: HopDongDetailView(hopDongItem :model)){
-                                                                Image("detail-het-hieu-luc")
-                                                            }
-                                                            
-                                                        }.padding(.trailing, 5)                .frame(alignment: .trailing)
+                       VStack {
+                           Text("Hết hiệu lực")
+                               .padding(.leading,36)
+                               .padding(.trailing,36)
+                               .padding(.top,8)
+                               .padding(.bottom,8)
+                               .foregroundColor(Color.white)
+                               .background(RoundedCorners(color: selectedTab == .SecondTab ? Color(hex: "1338BD") : Color(hex: "CBC1C1"), tl: 10, tr: 10, bl: 0, br: 0) )                       }
+                       .onTapGesture {
+                           self.selectedTab = .SecondTab
+                       }
+                       Spacer()
+                 
+                   }
+                   .padding(.top,25)
+                   Spacer()
 
-                                                    }
-                                                    .frame(width: .none, height: 44)
-                                                    .background(Color(hex: "E9E9E9"))
-                                                    .clipShape(RoundedRectangle(cornerRadius:10))
-                                                    .padding(.top, 4)
-                                                    .padding(.leading, 10)
-                                                    .padding(.trailing, 10)
-                                                    .padding(.bottom, 4)
-                                                }
-                                            }.task {
-                                                await hetHieuLuc()
-                                            }
-                                        }
-                                    }
-                                    .frame(maxWidth: .infinity)
-                                    .background(.white)
-                                    .tag(1)
-                                
-                                }
-                                .tabViewStyle(.page(indexDisplayMode: .never))
-                                .frame(maxWidth: .infinity, minHeight: proxy.size.height)
-                            } header: {
-                                HStack {
-                                    Button {
-                                        withAnimation {
-                                            tabIndex = 0
-                                        }
-                                    } label: {
-                                        Text("Còn hiệu lực")
-                                            .padding(.leading,36)
-                                            .padding(.trailing,36)
-                                            .padding(.top,8)
-                                            .padding(.bottom,8)
-                                            .foregroundColor(Color.white)
-                                            .background(RoundedCorners(color: Color(hex: "1338BD"), tl: 10, tr: 10, bl: 0, br: 0))
-                                    }
-                                    
-                  
-                            
-                                    Button {
-                                        withAnimation {
-                                            tabIndex = 1
-                                        }
-                                    } label: {
-                                        Text("Hết hiệu lực")
-                                            .padding(.leading,36)
-                                            .padding(.trailing,36)
-                                            .padding(.top,8)
-                                            .padding(.bottom,8)
-                                            .foregroundColor(Color.white)
-                                            .background(RoundedCorners(color: Color(hex: "1338BD"), tl: 10, tr: 10, bl: 0, br: 0))
-                                    }
-     
-
-                                }
-                                .padding(.top, 20)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .background(.regularMaterial)
-                            }                        }
-                    }
-                }
-                .zIndex(1)
-                Spacer()
+                   if (selectedTab == .FirstTab) {
+                       FirstTabView().padding(.top,-10)
+                   } else {
+                       SecondTabView().padding(.top,-10)
+                   }
             }.background(Color(hex: "#F2F1F6"))
             .toolbar{
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -280,11 +159,131 @@ struct HopDongView: View {
     }
 }
 
+struct FirstTabView : View {
+    var body : some View {
+        ZStack {
+                ScrollView{
+                // Tiêu đề HĐ còn hiệu lực
+                VStack{
+                    HStack{
+                        Text("Tên khách").font(.system(size: 16, weight: .bold))
+                        Spacer()
+                        Text("Hợp đồng").font(.system(size: 16, weight: .bold))
+                        Spacer()
+                        Text("Tác vụ").font(.system(size: 16, weight: .bold))
+                    }.padding(.top, 16)
+                        .padding(.leading, 25)
+                        .padding(.trailing, 25)
+                        .padding(.bottom, 16)
+                }.background(Color.white)
+                    .padding(.top,10)
+                
+                // nội dung HĐ Còn HL
+                VStack{
+                    ForEach(hopDongModel) { model in
+                        HStack(spacing: 10){
+                            Text(model.chuphong ?? "").padding(.leading, 5)
+                            Spacer()
+                            Text(model.idhd ?? "").padding(.leading, 5)
+                            Spacer()
+                            HStack{
+                                NavigationLink(destination: HopDongDetailView(hopDongItem :model)){
+                                    Image("edit")
+                                }
+                                
+                            }.padding(.trailing, 5)
+                        }
+                        .frame(width: .none, height: 44)
+                        .background(Color(hex: "E8EDFF"))
+                        .clipShape(RoundedRectangle(cornerRadius:10))
+                        .padding(.top, 4)
+                        .padding(.leading, 10)
+                        .padding(.trailing, 10)
+                        .padding(.bottom, 4)
+                    }
+                }
+                .task {
+                    await coHieuLuc()
+                }
+            }
+        }
+        .frame(maxWidth: .infinity)
+        .background(.white)
+        .tag(0)
+    }
+}
+
+struct SecondTabView : View {
+    
+    var body : some View {
+        ZStack {
+            ScrollView{
+                // Tiêu đề HĐ còn hiệu lực
+                VStack{
+                    HStack{
+                        Text("Tên khách").font(.system(size: 16, weight: .bold))
+                        Spacer()
+                        Text("Hợp đồng").font(.system(size: 16, weight: .bold))
+                        Spacer()
+                        Text("Tác vụ").font(.system(size: 16, weight: .bold))
+                    }.padding(.top, 16)
+                        .padding(.leading, 25)
+                        .padding(.trailing, 25)
+                        .padding(.bottom, 16)
+                }.background(Color.white)
+                    .padding(.top,10)
+                
+                // nội dung HĐ Còn HL
+                VStack{
+                    ForEach(hopDongModel) { model in
+                        HStack(spacing: 10){
+                            Text(model.chuphong ?? "").padding(.leading, 5)
+                                .frame(alignment: .leading)
+                            
+                            Spacer()
+                            Text(model.idhd ?? "").padding(.leading, 5)                       .frame(alignment: .center)
+
+                            Spacer()
+                            HStack{
+                                NavigationLink(destination: HopDongDetailView(hopDongItem :model)){
+                                    Image("detail-het-hieu-luc")
+                                }
+                                
+                            }.padding(.trailing, 5)
+                            .frame(alignment: .trailing)
+
+                        }
+                        .frame(width: .none, height: 44)
+                        .background(Color(hex: "E9E9E9"))
+                        .clipShape(RoundedRectangle(cornerRadius:10))
+                        .padding(.top, 4)
+                        .padding(.leading, 10)
+                        .padding(.trailing, 10)
+                        .padding(.bottom, 4)
+                    }
+                }
+                .task {
+                    await hetHieuLuc()
+                }
+            }
+        }.frame(maxWidth: .infinity)
+        .background(.white)
+        .tag(1)
+    }
+}
+
+enum Tabs {
+    case FirstTab
+    case SecondTab
+}
+
+
 struct HopDong: Codable, Identifiable {
     var id = UUID()
     let idhd : String?
     let phong : String?
     let chuphong: String?
+    let dienthoaichuphong: String?
     let ngaybatdau : String?
     let ngayketthuc: String?
     let trangthai : String?
@@ -294,6 +293,7 @@ struct HopDong: Codable, Identifiable {
         case idhd = "id"
         case phong = "phong"
         case chuphong = "chuphong"
+        case dienthoaichuphong = "dienthoaichuphong"
         case ngaybatdau = "ngaybatdau"
         case ngayketthuc = "ngayketthuc"
         case trangthai = "trangthai"

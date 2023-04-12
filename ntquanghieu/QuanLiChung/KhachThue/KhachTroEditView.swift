@@ -23,6 +23,8 @@ struct KhachTroEditView: View {
     @State var quocTich: String = ""
     @State var ngaySinh: String = ""
     @State var gioiTinh: String = ""
+    
+    @State var suaKhachThanhCong = false
 
     var btnBack : some View { Button(action: {
         self.presentationMode.wrappedValue.dismiss()
@@ -70,6 +72,84 @@ struct KhachTroEditView: View {
         }
     }
     
+//   giới tính
+    struct RadioButton: View {
+
+        @Environment(\.colorScheme) var colorScheme
+
+        let id: String
+        let callback: (String)->()
+        let selectedID : String
+        let size: CGFloat
+        let color: Color
+        let textSize: CGFloat
+
+        init(
+            _ id: String,
+            callback: @escaping (String)->(),
+            selectedID: String,
+            size: CGFloat = 20,
+            color: Color = Color.primary,
+            textSize: CGFloat = 14
+            ) {
+            self.id = id
+            self.size = size
+            self.color = color
+            self.textSize = textSize
+            self.selectedID = selectedID
+            self.callback = callback
+        }
+
+        var body: some View {
+            Button(action:{
+                self.callback(self.id)
+        
+            }) {
+                HStack(alignment: .center, spacing: 10) {
+                    Image(systemName: self.selectedID == self.id ? "largecircle.fill.circle" : "circle")
+                        .renderingMode(.original)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: self.size, height: self.size)
+                        .modifier(ColorInvert())
+                    Text(id)
+                        .font(Font.system(size: textSize))
+                    Spacer()
+                }.foregroundColor(self.color)
+            }
+            .foregroundColor(self.color)
+        }
+    }
+    
+    struct ColorInvert: ViewModifier {
+
+        @Environment(\.colorScheme) var colorScheme
+
+        func body(content: Content) -> some View {
+            Group {
+                if colorScheme == .dark {
+                    content.colorInvert()
+                } else {
+                    content
+                }
+            }
+        }
+    }
+    // giới tính
+    let genItems = ["Nam", "Nữ", "Khác"]
+    @State var genChoose: String = ""
+    
+    func callBackKhach(id: String) {
+        genChoose = id
+        if (genChoose == "Nam"){
+            gioiTinh = "1"
+        }else if (genChoose == "Nữ"){
+            gioiTinh = "2"
+        }else{
+            gioiTinh = "0"
+        }
+    }
+    
     func editKhach() async throws {
 
        guard let urlAddTB =  URL(string:"http://192.168.1.183/nhatro/admin/api/khach/edit.php")
@@ -79,6 +159,7 @@ struct KhachTroEditView: View {
 
         let body: [String: Any] = [
             "fullname": tenKhach,
+            "id": khachTroItem.idkhach,
             "dienthoai": dienThoai,
             "diachi": diaChi,
             "cancuoc": canCuoc,
@@ -105,6 +186,13 @@ struct KhachTroEditView: View {
            }
            
            let responseJSON = try? JSONDecoder().decode([Khach].self ,from: data )
+           suaKhachThanhCong = true
+           
+           if(suaKhachThanhCong == true){
+               KhachTroView()
+           }else{
+               KhachTroEditView(khachTroItem: khachTroItem)
+           }
        }.resume()
     }
     
@@ -249,30 +337,15 @@ struct KhachTroEditView: View {
                                     .padding(.bottom, 6)
                                     .padding(.top, 6)
                                 
-                                ZStack
-                                {
-                                    HStack{
-                                        Text("Quốc tịch: ").font(.system(size: 16, weight: .bold))
-                                            .padding(.leading, 9)
-                                        TextField("", text: $quocTich)
-                                            .padding(.trailing, 9)
-                                    }.padding(.top, 5)
-                                        .padding(.bottom, 5)
-                                        .background(Color(hex: "F3F6FF"))
-                                        .clipShape(RoundedRectangle(cornerRadius:10))
-                                    
-                                }.padding(.trailing, 14)
-                                    .padding(.leading, 14)
-                                    .padding(.bottom, 6)
-                                    .padding(.top, 6)
-                                
+                           
                                 ZStack
                                 {
                                     HStack{
                                         Text("Giới tính: ").font(.system(size: 16, weight: .bold))
                                             .padding(.leading, 9)
-                                        TextField("", text: $gioiTinh)
-                                            .padding(.trailing, 9)
+                                        ForEach(0..<genItems.count) { index in
+                                            RadioButton(self.genItems[index], callback: self.callBackKhach(id:), selectedID: self.genChoose)
+                                        }
                                     }.padding(.top, 5)
                                         .padding(.bottom, 5)
                                         .background(Color(hex: "F3F6FF"))
@@ -298,7 +371,7 @@ struct KhachTroEditView: View {
                                     }
                                     .foregroundColor(Color.white)
                                     .background(LinearGradient(gradient: Gradient(colors: [Color(hex: "#8091CE"),
-                                                                                           Color(hex:"#3252C5")]),startPoint: .topLeading,endPoint: .bottomTrailing))
+                                     Color(hex:"#3252C5")]),startPoint: .topLeading,endPoint: .bottomTrailing))
                                     .cornerRadius(6)
                                     .padding(.top,22)
                                     .padding(.bottom,17)
@@ -317,7 +390,7 @@ struct KhachTroEditView: View {
                                         }
                                     }
                                 label:{
-                                    Text("Thêm mới")
+                                    Text("Cập nhật")
                                         .padding(.top,5)
                                         .padding(.bottom,5)
                                         .padding(.leading, 44)
@@ -329,6 +402,11 @@ struct KhachTroEditView: View {
                                 .padding(.top,22)
                                 .padding(.bottom,17)
                                 .padding(.trailing,9)
+                                }
+                                .overlay{
+                                    NavigationLink(destination: KhachTroView(), isActive: $suaKhachThanhCong){
+                                            EmptyView()
+                                        }
                                 }
                             }
                             .background(Color.white)

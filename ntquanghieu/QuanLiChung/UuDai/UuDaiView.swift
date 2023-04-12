@@ -48,6 +48,7 @@ struct UuDaiView: View {
                 return
             }
           
+          print(parameters)
            let jsonData = try? JSONSerialization.data(withJSONObject: parameters ,options: .fragmentsAllowed)
            var request = URLRequest(url: url)
            
