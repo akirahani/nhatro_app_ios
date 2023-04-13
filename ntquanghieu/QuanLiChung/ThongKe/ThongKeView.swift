@@ -16,18 +16,18 @@ struct WebView: UIViewRepresentable {
 }
 struct ThongKeView: View {
     var body: some View {
-        ScrollView{
+        
             VStack{
-                WebView(url: URL(string: "http://localhost/nhatro/admin/api/thong-ke/doanh-thu-truoc.php")!)
-                WebView(url: URL(string: "http://localhost/nhatro/admin/api/thong-ke/do-tuoi.php")!)
-                WebView(url: URL(string: "http://localhost/nhatro/admin/api/thong-ke/doanh-thu.php")!)
-                WebView(url: URL(string: "http://localhost/nhatro/admin/api/thong-ke/gioi-tinh.php")!)
-                WebView(url: URL(string: "http://localhost/nhatro/admin/api/thong-ke/thiet-bi.php")!)
-                WebView(url: URL(string: "http://localhost/nhatro/admin/api/thong-ke/tien-thiet-bi.php")!)
-                WebView(url: URL(string: "http://localhost/nhatro/admin/api/thong-ke/tinh-thanh.php")!)
-                WebView(url: URL(string: "http://localhost/nhatro/admin/api/thong-ke/tong-quan.php")!)
+                    WebView(url: URL(string: "http://localhost/nhatro/admin/api/thong-ke/doanh-thu-truoc.php")!)
+                    WebView(url: URL(string: "http://localhost/nhatro/admin/api/thong-ke/do-tuoi.php")!)
+                    WebView(url: URL(string: "http://localhost/nhatro/admin/api/thong-ke/doanh-thu.php")!)
+                    WebView(url: URL(string: "http://localhost/nhatro/admin/api/thong-ke/gioi-tinh.php")!)
+                    WebView(url: URL(string: "http://localhost/nhatro/admin/api/thong-ke/thiet-bi.php")!)
+                    WebView(url: URL(string: "http://localhost/nhatro/admin/api/thong-ke/tien-thiet-bi.php")!)
+                    WebView(url: URL(string: "http://localhost/nhatro/admin/api/thong-ke/tinh-thanh.php")!)
+                    WebView(url: URL(string: "http://localhost/nhatro/admin/api/thong-ke/tong-quan.php")!)
             }
-        }
+
        
     }
 }
