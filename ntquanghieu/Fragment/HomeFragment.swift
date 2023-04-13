@@ -90,10 +90,13 @@ struct HomeFragment: View {
                             
                             HStack(alignment: .center
                                    , spacing: 0){
-                                Text("Xem chi tiết").font(.system(size: 14))
-                                    .foregroundColor(Color(hex: "354B9C"))
-                                    .padding(.trailing, 5)
-                                Image("detailthongke")
+                                NavigationLink(destination: ThongKeView()){
+                                    Text("Xem chi tiết").font(.system(size: 14))
+                                        .foregroundColor(Color(hex: "354B9C"))
+                                        .padding(.trailing, 5)
+                                    Image("detailthongke")
+                                }
+                       
                             }.padding(.top, 30)
                                 .padding(.trailing, 6)
                             
@@ -169,14 +172,16 @@ struct HomeFragment: View {
                                 .padding(.leading, 14)
                             Divider()
                             
-                            HStack{
-                                Image("thukhac")
-                                Text("Thu khác")
-                                Spacer()
-                            }.frame(maxWidth: .infinity, maxHeight: 51)
-                                .padding(.top, 10)
-                                .padding(.bottom, 10)
-                                .padding(.leading, 14)
+                            NavigationLink(destination: ThuKhacView()){
+                                HStack{
+                                    Image("thukhac")
+                                    Text("Thu khác").foregroundColor(Color.black)
+                                    Spacer()
+                                }.frame(maxWidth: .infinity, maxHeight: 51)
+                                    .padding(.top, 10)
+                                    .padding(.bottom, 10)
+                                    .padding(.leading, 14)
+                            }
                         }
                     }
                     .background(Color.white)

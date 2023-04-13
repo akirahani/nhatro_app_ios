@@ -14,6 +14,8 @@
 		0786A46629DC3B0100FA8B3C /* UuDaiAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0786A46529DC3B0100FA8B3C /* UuDaiAddView.swift */; };
 		0786A46829DC75B300FA8B3C /* UuDaiEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0786A46729DC75B300FA8B3C /* UuDaiEditView.swift */; };
 		0786A46C29DD3B3300FA8B3C /* UuDaiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0786A46B29DD3B3300FA8B3C /* UuDaiView.swift */; };
+		84429D0329E77C1400045169 /* ThuKhacView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84429D0229E77C1400045169 /* ThuKhacView.swift */; };
+		84429D0529E77C3900045169 /* ThuKhacAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84429D0429E77C3900045169 /* ThuKhacAddView.swift */; };
 		84832AA929D2EF31006B8B15 /* ThongKe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84832AA829D2EF31006B8B15 /* ThongKe.swift */; };
 		84832AAB29D2F0DF006B8B15 /* ThongKeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84832AAA29D2F0DF006B8B15 /* ThongKeView.swift */; };
 		84832ACB29D42054006B8B15 /* KhachTroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84832ACA29D42054006B8B15 /* KhachTroView.swift */; };
@@ -47,6 +49,8 @@
 		0786A46529DC3B0100FA8B3C /* UuDaiAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UuDaiAddView.swift; sourceTree = "<group>"; };
 		0786A46729DC75B300FA8B3C /* UuDaiEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UuDaiEditView.swift; sourceTree = "<group>"; };
 		0786A46B29DD3B3300FA8B3C /* UuDaiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UuDaiView.swift; sourceTree = "<group>"; };
+		84429D0229E77C1400045169 /* ThuKhacView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThuKhacView.swift; sourceTree = "<group>"; };
+		84429D0429E77C3900045169 /* ThuKhacAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThuKhacAddView.swift; sourceTree = "<group>"; };
 		84832AA829D2EF31006B8B15 /* ThongKe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThongKe.swift; sourceTree = "<group>"; };
 		84832AAA29D2F0DF006B8B15 /* ThongKeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThongKeView.swift; sourceTree = "<group>"; };
 		84832ACA29D42054006B8B15 /* KhachTroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KhachTroView.swift; sourceTree = "<group>"; };
@@ -255,6 +259,8 @@
 		84832AE429D43471006B8B15 /* ThuKhac */ = {
 			isa = PBXGroup;
 			children = (
+				84429D0229E77C1400045169 /* ThuKhacView.swift */,
+				84429D0429E77C3900045169 /* ThuKhacAddView.swift */,
 			);
 			path = ThuKhac;
 			sourceTree = "<group>";
@@ -412,7 +418,9 @@
 				84832AD529D42092006B8B15 /* PhongTroView.swift in Sources */,
 				0768C8F029D993700015055D /* DichVuAddView.swift in Sources */,
 				0786A46629DC3B0100FA8B3C /* UuDaiAddView.swift in Sources */,
+				84429D0529E77C3900045169 /* ThuKhacAddView.swift in Sources */,
 				84C4FBB529E08A4B00CE700A /* HopDongDetailView.swift in Sources */,
+				84429D0329E77C1400045169 /* ThuKhacView.swift in Sources */,
 				84832ADC29D43394006B8B15 /* MenuSlideView.swift in Sources */,
 				84832AAB29D2F0DF006B8B15 /* ThongKeView.swift in Sources */,
 				84D4B30429CDA1B400DB9770 /* AppDelegate.swift in Sources */,
